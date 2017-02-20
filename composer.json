@@ -1,13 +1,17 @@
 {
     "require": {
-        "silex/silex": "1.0.*@dev",
-        "twig/twig": ">=1.8,<2.0-dev",
-        "symfony/twig-bridge": "2.1.*",
-        "doctrine/dbal": ">=2.2.0,<2.4.0-dev",
+        "silex/silex": "^2.0",
+        "twig/twig": "^1.8",
+        "symfony/twig-bridge": "^2.4",
+        "symfony/translation": "^2.4",
+        "symfony/validator": "^2.4",
+        "symfony/security": "^2.4",
+        "symfony/serializer": "^2.4",
+        "symfony/yaml": "^2.4",
+        "doctrine/dbal": "^2.2",
         "doctrine/orm": "*",
         "gedmo/doctrine-extensions":"*",
-        "symfony/security": "2.1.*",
-        "symfony/serializer": "2.1.*"
+        "monolog/monolog": "^1.20"
     },
 
     "minimum-stability": "dev",
@@ -15,6 +19,6 @@
         "bin-dir": "bin/"
     },
     "autoload": {
-        "psr-0": {"ces": "src/"}
+        "psr-4": {"Ces\\": ["src/"]}
     }
 }
