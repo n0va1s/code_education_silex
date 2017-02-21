@@ -9,7 +9,11 @@ $app = new Silex\Application();
 $app['debug'] = true;
 
 $app->before(function (Request $req) {
-    echo 'Executado antes do request';
+    /*if (0 === strpos($req->headers->get('Content-Type'), 'application/json')) {
+        $data = json_decode($req->getContent(), true);
+        $req->request->replace(is_array($data) ? $data : array());
+    }
+    return $req;*/
 });
 
 $app->get('/', function () {
@@ -21,11 +25,13 @@ $app->get('/', function () {
 });
 
 $app->after(function (Request $req, Response $res) {
-    echo 'Executado antes do response para o browser';
+    //$res->headers->set('Content-Type', 'application/json');
+    //return $res->json_encode($res);
 });
 
 $app->finish(function (Request $req, Response $res) {
-    echo 'Executado apos o response para o browser';
+    //$res->headers->set('Content-Type', 'application/json');
+    //return $res;
 });
 
 //Controladoras dos modulos da aplicacao
