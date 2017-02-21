@@ -1,12 +1,14 @@
 <?php
 require_once __DIR__.'/../vendor/autoload.php';
+//require_once __DIR__.'/../src/bootstrap.php';
 
 use \Symfony\Component\HttpFoundation\Request;
 use \Symfony\Component\HttpFoundation\Response;
-use \Ces\Post\PostController;
+use \Api\Post\PostController;
 
 $app = new Silex\Application();
 $app['debug'] = true;
+$app->register(new Silex\Provider\ServiceControllerServiceProvider());
 
 $app->before(function (Request $req) {
     /*if (0 === strpos($req->headers->get('Content-Type'), 'application/json')) {

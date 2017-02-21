@@ -12,7 +12,7 @@ use Doctrine\ORM\Tools\Setup,
 
 use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\SessionServiceProvider;
-
+use Silex\ServiceControllerServiceProvider;
 
 $cache = new Doctrine\Common\Cache\ArrayCache;
 
@@ -80,7 +80,7 @@ $em = EntityManager::create(
 $app = new Silex\Application();
 $app['debug'] = true;
 
-
+/*
 $app['user_repository'] = $app->share(function($app) use ($em) {
     $user = new SON\Entity\User();
 
@@ -89,7 +89,7 @@ $app['user_repository'] = $app->share(function($app) use ($em) {
 
     return $repo;
 });
-
+*/
 
 $app->register(new Silex\Provider\TwigServiceProvider(),array(
     'twig.path' => __DIR__ .'/../views',
