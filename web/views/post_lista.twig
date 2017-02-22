@@ -1,0 +1,9 @@
+{% extends 'leiaute.twig' %}
+{% block conteudo %}
+<h1> Confira todos os posts cadastrados</h1>
+<ul>
+{% for post in posts %}
+  <li><a href=/post/{{post.id }}>Post {{ post.id }}</a>
+{% endfor %}
+</ul>
+{% endblock %}
