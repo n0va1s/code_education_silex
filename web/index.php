@@ -6,7 +6,6 @@ use \Symfony\Component\HttpFoundation\Request;
 use \Symfony\Component\HttpFoundation\Response;
 use \Api\Post\PostController;
 
-$app = new Silex\Application();
 $app['debug'] = true;
 
 $app->before(function (Request $req) {
@@ -17,14 +16,9 @@ $app->before(function (Request $req) {
     return $req;*/
 });
 
-$app->get('/', function () {
-    
-    return new Response('Bem-vindo ao módulo Silex!<br />
-                         Use as seguintes rotas:<br />
-                         Projeto fase 1 = /post/{id}<br />
-                         Projeto fase 2 = /post/all/html<br />
-                         Projeto fase 3 = /post/all/json<br />', 200);
-});
+$app->get('/', function () use ($app) {
+    return $app['twig']->render('inicio.twig');
+})->bind('inicio');
 
 $app->after(function (Request $req, Response $res) {
     //$res->headers->set('Content-Type', 'application/json');
