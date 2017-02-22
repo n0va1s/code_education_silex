@@ -25,14 +25,14 @@ class PostController implements ControllerProviderInterface
             return new PostModel;
         };
 
-        $ctrl->get('/', function () use ($posts) {
+        $ctrl->get('/', function () {
             return new Response("Bem-vindo ao modulo POST do curso de Siles da Code Education <br />", 200);
         })->before($b)->after($a);
 
         $ctrl->get('/{id}', function ($id) use ($app) {
             $posts = $app['post']->listar();
             if (empty($posts[$id-1])) {
-                return $app->abort("Não encontrei o post {$id} <br />");
+                return $app->abort(500, "Não encontrei o post {$id}");
             }
             return new Response($posts[$id-1]['conteudo']."<br /><a href=/post/all/html>Ver todos</a>", 200);
         })->assert('id', '\d+') //verifica se o parametro e numerico

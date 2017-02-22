@@ -655,12 +655,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "149d60342f759bad5bb78ab404d74ce3c9febff1"
+                "reference": "d55b0db512c8f9897ded8ca798e889e39695f00d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/149d60342f759bad5bb78ab404d74ce3c9febff1",
-                "reference": "149d60342f759bad5bb78ab404d74ce3c9febff1",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/d55b0db512c8f9897ded8ca798e889e39695f00d",
+                "reference": "d55b0db512c8f9897ded8ca798e889e39695f00d",
                 "shasum": ""
             },
             "require": {
@@ -725,7 +725,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2016-11-10 15:20:55"
+            "time": "2017-02-21 18:17:55"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1079,12 +1079,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "e206c62e2c24302a79bf66a724f8286380ffd8e3"
+                "reference": "9d781f15ffc8bf8e7f5ea1885325bada859ef306"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/e206c62e2c24302a79bf66a724f8286380ffd8e3",
-                "reference": "e206c62e2c24302a79bf66a724f8286380ffd8e3",
+                "url": "https://api.github.com/repos/symfony/console/zipball/9d781f15ffc8bf8e7f5ea1885325bada859ef306",
+                "reference": "9d781f15ffc8bf8e7f5ea1885325bada859ef306",
                 "shasum": ""
             },
             "require": {
@@ -1139,7 +1139,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-21 10:20:16"
+            "time": "2017-02-21 14:51:50"
         },
         {
             "name": "symfony/debug",
@@ -1815,12 +1815,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
-                "reference": "01cc2054766d3d98b4cec60be7eff0b96f23aa54"
+                "reference": "d3ffb4373584fb8859c73861a45230c0e4dd4807"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security/zipball/01cc2054766d3d98b4cec60be7eff0b96f23aa54",
-                "reference": "01cc2054766d3d98b4cec60be7eff0b96f23aa54",
+                "url": "https://api.github.com/repos/symfony/security/zipball/d3ffb4373584fb8859c73861a45230c0e4dd4807",
+                "reference": "d3ffb4373584fb8859c73861a45230c0e4dd4807",
                 "shasum": ""
             },
             "require": {
@@ -1848,7 +1848,7 @@
                 "symfony/ldap": "~2.8|~3.0.0",
                 "symfony/polyfill-intl-icu": "~1.0",
                 "symfony/routing": "~2.2|~3.0.0",
-                "symfony/validator": "^2.5.9|~3.0.0"
+                "symfony/validator": "~2.7.25|^2.8.18|~3.2.5"
             },
             "suggest": {
                 "symfony/expression-language": "For using the expression voter",
@@ -1887,7 +1887,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-21 09:00:26"
+            "time": "2017-02-21 14:21:52"
         },
         {
             "name": "symfony/security-acl",
@@ -2020,12 +2020,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "ad2d6ef97fc90441d95d17ce1d00d3ea31210430"
+                "reference": "cd41812e11f31df0566d758a58cd3b164b6ef677"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/ad2d6ef97fc90441d95d17ce1d00d3ea31210430",
-                "reference": "ad2d6ef97fc90441d95d17ce1d00d3ea31210430",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/cd41812e11f31df0566d758a58cd3b164b6ef677",
+                "reference": "cd41812e11f31df0566d758a58cd3b164b6ef677",
                 "shasum": ""
             },
             "require": {
@@ -2038,7 +2038,7 @@
             "require-dev": {
                 "psr/log": "~1.0",
                 "symfony/config": "~2.8",
-                "symfony/intl": "~2.4|~3.0.0",
+                "symfony/intl": "~2.7.25|^2.8.18|~3.2.5",
                 "symfony/yaml": "~2.2|~3.0.0"
             },
             "suggest": {
@@ -2076,7 +2076,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-21 08:33:48"
+            "time": "2017-02-21 14:21:52"
         },
         {
             "name": "symfony/twig-bridge",
@@ -2084,12 +2084,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "8d8f9c1016f925caf3e6fb0e9c1fb842697ef4b7"
+                "reference": "38edcbe87dfff9adfd0855efa9d6d59b469ec527"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/8d8f9c1016f925caf3e6fb0e9c1fb842697ef4b7",
-                "reference": "8d8f9c1016f925caf3e6fb0e9c1fb842697ef4b7",
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/38edcbe87dfff9adfd0855efa9d6d59b469ec527",
+                "reference": "38edcbe87dfff9adfd0855efa9d6d59b469ec527",
                 "shasum": ""
             },
             "require": {
@@ -2101,7 +2101,7 @@
                 "symfony/console": "~2.8|~3.0.0",
                 "symfony/expression-language": "~2.4|~3.0.0",
                 "symfony/finder": "~2.3|~3.0.0",
-                "symfony/form": "^2.8.16",
+                "symfony/form": "^2.8.18",
                 "symfony/http-kernel": "~2.8|~3.0.0",
                 "symfony/polyfill-intl-icu": "~1.0",
                 "symfony/routing": "~2.2|~3.0.0",
@@ -2157,7 +2157,7 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
-            "time": "2017-02-21 08:33:48"
+            "time": "2017-02-21 14:21:52"
         },
         {
             "name": "symfony/validator",
@@ -2165,12 +2165,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "6702809ef8ff2650e38dbde28bc49dc136b5aa04"
+                "reference": "6a2a5f21fdc999043147344ff509285f066e1645"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/6702809ef8ff2650e38dbde28bc49dc136b5aa04",
-                "reference": "6702809ef8ff2650e38dbde28bc49dc136b5aa04",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/6a2a5f21fdc999043147344ff509285f066e1645",
+                "reference": "6a2a5f21fdc999043147344ff509285f066e1645",
                 "shasum": ""
             },
             "require": {
@@ -2185,7 +2185,7 @@
                 "symfony/config": "~2.2|~3.0.0",
                 "symfony/expression-language": "~2.4|~3.0.0",
                 "symfony/http-foundation": "~2.3|~3.0.0",
-                "symfony/intl": "~2.7.4|~2.8|~3.0.0",
+                "symfony/intl": "~2.7.25|^2.8.18|~3.2.5",
                 "symfony/property-access": "~2.3|~3.0.0",
                 "symfony/yaml": "^2.0.5|~3.0.0"
             },
@@ -2230,7 +2230,7 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-21 08:33:48"
+            "time": "2017-02-21 14:21:52"
         },
         {
             "name": "symfony/yaml",
@@ -2287,12 +2287,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "b6a16a21f93dc80a48cb140c32d3beb44458d9c3"
+                "reference": "bb3f4d61830c3b0bb5aeaefb9a74b56b2f8da74b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/b6a16a21f93dc80a48cb140c32d3beb44458d9c3",
-                "reference": "b6a16a21f93dc80a48cb140c32d3beb44458d9c3",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/bb3f4d61830c3b0bb5aeaefb9a74b56b2f8da74b",
+                "reference": "bb3f4d61830c3b0bb5aeaefb9a74b56b2f8da74b",
                 "shasum": ""
             },
             "require": {
@@ -2341,7 +2341,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-02-17 19:29:51"
+            "time": "2017-02-21 15:46:47"
         }
     ],
     "packages-dev": [],

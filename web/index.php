@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__.'/../vendor/autoload.php';
-//require_once __DIR__.'/../src/bootstrap.php';
+require_once __DIR__.'/bootstrap.php';
 
 use \Symfony\Component\HttpFoundation\Request;
 use \Symfony\Component\HttpFoundation\Response;
@@ -8,7 +8,6 @@ use \Api\Post\PostController;
 
 $app = new Silex\Application();
 $app['debug'] = true;
-$app->register(new Silex\Provider\ServiceControllerServiceProvider());
 
 $app->before(function (Request $req) {
     /*if (0 === strpos($req->headers->get('Content-Type'), 'application/json')) {
@@ -23,7 +22,8 @@ $app->get('/', function () {
     return new Response('Bem-vindo ao módulo Silex!<br />
                          Use as seguintes rotas:<br />
                          Projeto fase 1 = /post/{id}<br />
-                         Projeto fase 2 = /post/all<br />', 200);
+                         Projeto fase 2 = /post/all/html<br />
+                         Projeto fase 3 = /post/all/json<br />', 200);
 });
 
 $app->after(function (Request $req, Response $res) {
