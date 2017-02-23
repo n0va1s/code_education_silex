@@ -1,9 +1,33 @@
 {% extends 'leiaute.twig' %}
 {% block conteudo %}
-Bem-vindo ao módulo Silex!<br />
-Use as seguintes rotas:<br />
- - Projeto fase 1 = /post/{id}<br />
- - Projeto fase 2 = /post/all/html<br />
- - Projeto fase 3 = /post/all/json<br />
- - Projeto fase 4 = rotas usando twig
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                    <a href="#">
+                        <h2 class="post-title">
+                            Bem vindo!
+                        </h2>
+                    </a>
+                    <h3 class="post-subtitle">Rotas:</h3>
+                    <p class="post-meta">
+                        / - Orientações<br />
+                        /post/ - lista de posts cadastrados<br />
+                        /post/{id} - apresenta o post informado<br />
+                        /post/all/json - posts cadastrados em formato json
+                    </p>
+                </div>
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        <p>Divirta-se!</p
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+
+

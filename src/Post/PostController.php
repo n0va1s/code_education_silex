@@ -25,9 +25,10 @@ class PostController implements ControllerProviderInterface
             return new PostModel;
         };
 
-        $ctrl->get('/', function () {
-            return new Response("Bem-vindo ao modulo POST do curso de Siles da Code Education <br />", 200);
-        })->before($b)->after($a)->bind('inicioPost');
+        $ctrl->get('/', function () use ($app) {
+            return $app['twig']->render('post.twig', array('posts' => $app['post']->listar()));
+        })->value('', '/') //estabelece um valor default
+        ->bind('inicioPost');
 
         $ctrl->get('/{id}', function ($id) use ($app) {
             $posts = $app['post']->listar();
@@ -37,17 +38,11 @@ class PostController implements ControllerProviderInterface
             return $app['twig']->render('post_detalhe.twig', array('post'=>$posts[$id-1]));
             //return new Response($posts[$id-1]['conteudo']."", 200);
         })->assert('id', '\d+') //verifica se o parametro e numerico
-          ->value('id', 0) //estabelece um valor default
           ->bind('postPorID');//para fazar links e URLGenerator
 
         $ctrl->get('/all/json', function() use ($app) {
             return new Response($app->json($app['post']->listar()), 201);
-        })->bind('postsJson');
-
-        $ctrl->get('/all/html', function() use ($app) {
-            return $app['twig']->render('post_lista.twig', array('posts'=>$app['post']->listar()));
-            //return new Response($html, 201);
-        })->bind('postsHtml');
+        })->before($b)->after($a)->bind('postsJson');
 
         return $ctrl;
     }

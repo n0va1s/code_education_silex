@@ -22,16 +22,16 @@ class PostModel
 	}
 	public function listar() {
 		$posts = array(
-            array('id' => 1, 'conteudo' => 'Esse e o conteudo do post 1'),
-            array('id' => 2, 'conteudo' => 'Esse e o conteudo do post 2'),
-            array('id' => 3, 'conteudo' => 'Esse e o conteudo do post 3'),
-            array('id' => 4, 'conteudo' => 'Esse e o conteudo do post 4'),
-            array('id' => 5, 'conteudo' => 'Esse e o conteudo do post 5'),
-            array('id' => 6, 'conteudo' => 'Esse e o conteudo do post 6'),
-            array('id' => 7, 'conteudo' => 'Esse e o conteudo do post 7'),
-            array('id' => 8, 'conteudo' => 'Esse e o conteudo do post 8'),
-            array('id' => 9, 'conteudo' => 'Esse e o conteudo do post 9'),
-            array('id' => 10, 'conteudo' => 'Esse e o conteudo do post 10'));
+            array('id' => 1, 'titulo'=>'Você sabia que...', 'conteudo' => 'nonononononoonnonononononoonnonononononoonnonononononoonnonononononoon 1', 'autor' => 'JP', 'data' => '23/02/2017'),
+            array('id' => 2, 'titulo'=>'Era uma vez...',  'conteudo' => 'nonononononoonnonononononoonnonononononoonnonononononoonnonononononoon 2', 'autor' => 'n0va1s', 'data' => '01/02/2017'),
+            array('id' => 3, 'titulo'=>'Hoje no Planalto...',  'conteudo' => 'nonononononoonnonononononoonnonononononoonnonononononoonnonononononoon 3', 'autor' => 'n0va1s', 'data' => '17/02/2017'),
+            array('id' => 4, 'titulo'=>'O Presidente do ...',  'conteudo' => 'nonononononoonnonononononoonnonononononoonnonononononoonnonononononoon 4', 'autor' => 'JP', 'data' => '23/02/2017'),
+            array('id' => 5, 'titulo'=>'A empresa ...',  'conteudo' => 'nonononononoonnonononononoonnonononononoonnonononononoonnonononononoon 5', 'autor' => 'JP', 'data' => '22/02/2017'),
+            array('id' => 6, 'titulo'=>'A NASA acredita...',  'conteudo' => 'nonononononoonnonononononoonnonononononoonnonononononoonnonononononoon 6', 'autor' => 'JP', 'data' => '21/02/2017'),
+            array('id' => 7, 'titulo'=>'O novo filme...',  'conteudo' => 'nonononononoonnonononononoonnonononononoonnonononononoonnonononononoon 7', 'autor' => 'n0va1s', 'data' => '01/01/2017'),
+            array('id' => 8, 'titulo'=>'O cenário econômico',  'conteudo' => 'nonononononoonnonononononoonnonononononoonnonononononoonnonononononoon 8', 'autor' => 'JP', 'data' => '10/01/2017'),
+            array('id' => 9, 'titulo'=>'Cai na...',  'conteudo' => 'nonononononoonnonononononoonnonononononoonnonononononoonnonononononoon 9', 'autor' => 'JP', 'data' => '10/01/2017'),
+            array('id' => 10, 'titulo'=>'Hoje é dia de...',  'conteudo' => 'nonononononoonnonononononoonnonononononoonnonononononoonnonononononoon 10', 'autor' => 'JP', 'data' => '19/01/2017'));
 		return $posts;
 	}
 }
