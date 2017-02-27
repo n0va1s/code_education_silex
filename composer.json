@@ -1,9 +1,14 @@
 {
     "require": {
         "silex/silex": "1.3.*",
-        "twig/twig": "~1.31",
-        "symfony/twig-bridge": "~2.3",
-        "monolog/monolog": "^1.4.1"
+        "twig/twig": "~1.28|~2.0",
+        "symfony/twig-bridge": "~2.3|3.0.*",
+        "monolog/monolog": "^1.4.1",
+        "doctrine/dbal": "~2.2",
+        "doctrine/orm": "*",
+        "gedmo/doctrine-extensions":"*",
+        "symfony/security": "~2.3|3.0.*",
+        "symfony/serializer": "~2.3|3.0.*"
     },
 
     "minimum-stability": "dev",

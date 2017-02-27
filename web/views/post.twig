@@ -4,20 +4,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <a href="{{ app.url_generator.generate('postCadastro') }}"><button>Novo post (+)</button></a>
                 {% for post in posts %}
                 <div class="post-preview">
                     <a href="{{ app.url_generator.generate('postPorID', {id: post.id}) }}"><h2 class="post-title">{{ post.titulo }}</h2></a>
                     <p class="post-subtitle">{{ post.conteudo }}</p>
-                    <!--<p class="post-meta">Postado por <a href="#">{{ post.autor }}</a> em {{ post.data }}</p>-->
                 </div>
                 <hr>
                 {% endfor %}
-                <!-- Pager -->
-                <ul class="pager">
-                    <li class="next">
-                        <a href="#">Posts antigos</a>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>

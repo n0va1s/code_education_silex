@@ -8,9 +8,17 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PostController implements ControllerProviderInterface
 {
+    private $em;
+
+    public function __construct(\Doctrine\ORM\EntityManager $em)
+    {
+        $this->em = $em;
+    }
+
     public function connect(Application $app)
     {
         $ctrl = $app['controllers_factory'];
+
         
         //Caso as funcoes sejam usadas por varias rotas
         $a = function () {
@@ -21,17 +29,18 @@ class PostController implements ControllerProviderInterface
             echo "Executado antes da funcao desta rota";
         };
 
-        $app['post'] = function() {
-            return new PostModel;
+        $app['posts'] = function () {
+            $postRep = $this->em->getRepository('\Api\Post\PostEntity');
+            return $postRep->getPosts();
         };
 
         $ctrl->get('/', function () use ($app) {
-            return $app['twig']->render('post.twig', array('posts' => $app['post']->listar()));
+            return $app['twig']->render('post.twig', array('posts' => $app['posts']));
         })->value('', '/') //estabelece um valor default
-        ->bind('inicioPost');
+        ->bind('postLista');
 
         $ctrl->get('/{id}', function ($id) use ($app) {
-            $posts = $app['post']->listar();
+            $posts = $app['posts'];
             if (empty($posts[$id-1])) {
                 return $app->abort(500, "Não encontrei o post {$id}");
             }
@@ -40,9 +49,32 @@ class PostController implements ControllerProviderInterface
         })->assert('id', '\d+') //verifica se o parametro e numerico
           ->bind('postPorID');//para fazar links e URLGenerator
 
-        $ctrl->get('/all/json', function() use ($app) {
-            return new Response($app->json($app['post']->listar()), 201);
-        })->before($b)->after($a)->bind('postsJson');
+        $ctrl->get('/all/json', function () use ($app) {
+            return new Response($app->json($app['posts']), 201);
+        })->bind('postsJson');
+
+        $ctrl->get('/cadastrar', function () use ($app) {
+            return $app['twig']->render('post_cadastro.twig');
+        })->bind('postCadastro');
+
+        $ctrl->post('/gravar', function (Request $req) use ($app) {
+            $data = $req->request->all();
+
+            $post = new PostEntity;
+            $post->setTitulo($data['desTitulo']);
+            $post->setConteudo($data['txtConteudo']);
+            $post->setAutor($data['nomAutor']);
+            $post->setData($data['datPost']);
+            
+            $this->em->persist($post);
+            $this->em->flush();
+
+            if ($post->getId()) {
+                return $app->redirect($app['url_generator']->generate('postLista'));
+            } else {
+                $app->abort(500, 'Erro ao salvar o post');
+            }
+        })->bind('postGravacao');
 
         return $ctrl;
     }

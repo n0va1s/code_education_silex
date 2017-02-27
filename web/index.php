@@ -6,8 +6,6 @@ use \Symfony\Component\HttpFoundation\Request;
 use \Symfony\Component\HttpFoundation\Response;
 use \Api\Post\PostController;
 
-$app['debug'] = true;
-
 $app->before(function (Request $req) {
     /*if (0 === strpos($req->headers->get('Content-Type'), 'application/json')) {
         $data = json_decode($req->getContent(), true);
@@ -31,6 +29,6 @@ $app->finish(function (Request $req, Response $res) {
 });
 
 //Controladoras dos modulos da aplicacao
-$app->mount('/post', new PostController());
+$app->mount('/post', new PostController($em));
 
 $app->run();
