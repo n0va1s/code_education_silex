@@ -20,10 +20,10 @@ class PostRepository extends EntityRepository
         return $posts;
     }
 
-    public function getPostsByAutor($autor)
+    public function getPostsByAutor($nom_autor)
     {
-        $query = $this->em->createQuery('select p from \Api\Post\PostEntity p where p.autor = ? order by p.data desc')
-                 ->setParameter(1, $autor);
+        $query = $this->em->createQuery('select p from \Api\Post\PostEntity p where p.nom_autor = ? order by p.dat_publicacao desc')
+                 ->setParameter(1, $nom_autor);
         $posts = $query->getArrayResult();
         return $posts;
     }

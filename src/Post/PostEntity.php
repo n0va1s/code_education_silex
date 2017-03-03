@@ -16,85 +16,81 @@ class PostEntity
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      */
-    private $id;
+    private $seq_post;
 
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $titulo;
+    private $des_titulo;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $conteudo;
+    private $txt_conteudo;
 
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $autor;
+    private $nom_autor;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $data;
+    private $dat_publicacao;
 
-    public function getData()
+    public function getDatPublicacao()
     {
-        return Date('d/m/Y', $this->data);
+        return $this->dat_publicacao;
     }
 
-    public function setData($data)
+    public function setDatPublicacao($dat_publicacao)
     {
-        $time = strtotime($data);
-        $this->data = new \DateTime($time);
+        //$time = strtotime($data);
+        $this->dat_publicacao = new \DateTime($dat_publicacao);
         return $this;
     }
 
-    public function getId()
+    public function getSeqPost()
     {
-        return $this->id;
+        return $this->seq_post;
     }
 
-    public function setId($id)
+    public function setSeqPost($seq_post)
     {
-        $this->id = $id;
-
+        $this->seq_post = $seq_post;
         return $this;
     }
 
-    public function getTitulo()
+    public function getDesTitulo()
     {
-        return $this->titulo;
+        return $this->des_titulo;
     }
 
-    public function setTitulo($titulo)
+    public function setDesTitulo($des_titulo)
     {
-        $this->titulo = $titulo;
-
+        $this->des_titulo = $des_titulo;
         return $this;
     }
 
-    public function getConteudo()
+    public function getTxtConteudo()
     {
-        return $this->conteudo;
+        return $this->txt_conteudo;
     }
 
-    public function setConteudo($conteudo)
+    public function setTxtConteudo($txt_conteudo)
     {
-        $this->conteudo = $conteudo;
-
+        $this->txt_conteudo = $txt_conteudo;
         return $this;
     }
 
-    public function getAutor()
+    public function getNomAutor()
     {
-        return $this->autor;
+        return $this->nom_autor;
     }
 
-    public function setAutor($autor)
+    public function setNomAutor($nom_autor)
     {
-        $this->autor = $autor;
-
+        $this->nom_autor = $nom_autor;
         return $this;
     }
 }

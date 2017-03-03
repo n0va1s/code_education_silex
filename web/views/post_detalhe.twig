@@ -5,14 +5,11 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
-                    <a href="/post/{{ post.id }}">
-                        <h2 class="post-title">
-                            {{ post.titulo }}
-                        </h2>
-                    </a>                        
-                    <p>{{ post.conteudo }}</p>
-                    <p class="post-meta">Postado por <a href="#">{{ post.autor }}</a> em {{ post.data }}</p>
+                    <h2 class="post-title">{{ post.des_titulo }}</h2>
+                    <p>{{ post.txt_conteudo }}</p>
+                    <p class="post-meta">Postado por <a href="#">{{ post.nom_autor }}</a> em {{ post.dat_publicacao|date('Y-m-d H:i:s') }}</p>
                 </div>
+                <a href="{{ app.url_generator.generate('postDelecao',{id: post.seq_post}) }}">Excluir</a>
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">

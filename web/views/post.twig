@@ -7,9 +7,11 @@
                 <a href="{{ app.url_generator.generate('postCadastro') }}"><button>Novo post (+)</button></a>
                 {% for post in posts %}
                 <div class="post-preview">
-                    <a href="{{ app.url_generator.generate('postPorID', {id: post.id}) }}"><h2 class="post-title">{{ post.titulo }}</h2></a>
-                    <p class="post-subtitle">{{ post.conteudo }}</p>
+                    <a href="{{ app.url_generator.generate('postAlteracao', {id: post.seq_post}) }}"><h2 class="post-title">{{ post.des_titulo }}</h2></a>
+                    <p class="post-subtitle">{{ post.txt_conteudo }}</p>
+                    <p class="post-meta">Postado por <a href="#">{{ post.nom_autor }}</a> em </p>
                 </div>
+                <a href="{{ app.url_generator.generate('postDelecao',{id: post.seq_post}) }}"><button>Excluir post (-)</button></a>
                 <hr>
                 {% endfor %}
             </div>
