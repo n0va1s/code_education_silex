@@ -40,12 +40,12 @@ class PostEntity
 
     public function getDatPublicacao()
     {
-        return $this->dat_publicacao;
+        return $this->dat_publicacao->format(self::DATE_FORMAT);
     }
 
     public function setDatPublicacao($dat_publicacao)
     {
-        //$time = strtotime($data);
+        //$time = strtotime($dat_publicacao);
         $this->dat_publicacao = new \DateTime($dat_publicacao);
         return $this;
     }

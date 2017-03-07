@@ -7,15 +7,19 @@
                 <div class="post-preview">
                     <a href="#">
                         <h2 class="post-title">
-                            Bem vindo!
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            Bem vindo! {{ username }},
+                            {% else %}
+                            Visitante!
+                           {% endif %}
                         </h2>
                     </a>
                     <h3 class="post-subtitle">Rotas:</h3>
                     <p class="post-meta">
                         / - Orientações<br />
                         /post/ - lista de posts cadastrados<br />
-                        /post/{id} - apresenta o post informado<br />
                         /post/all/json - posts cadastrados em formato json
+                        /user/ - login
                     </p>
                 </div>
                 <hr>

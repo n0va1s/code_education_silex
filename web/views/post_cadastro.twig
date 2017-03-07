@@ -7,39 +7,24 @@
                 <div>
                     {% if post %}
                     <form action="{{ app.url_generator.generate('postAtualizacao', {id: post.seq_post}) }}" method="post">
-                        <fieldset>
-                            <legend>Cadastre o post:</legend>
-                                <label for="titulo">Título:</label><br />
-                                <input type="text" id="titulo" type="text" name="desTitulo" value ="{{ post.des_titulo }}"><br />
-                                <label for="conteudo">Conteúdo:</label><br>
-                                <textarea id="conteudo" name="txtConteudo">{{ post.txt_conteudo }}</textarea><br />
-                                <label for="autor">Autor:</label><br />
-                                <input type="text" id="autor" type="text" name="nomAutor" value ="{{ post.nom_autor }}"> <br />
-                                <label for="data">Data:</label><br />
-                                <input type="date" id="data" name="datPost" value ="{{ post.dat_publicacao|date('Y-m-d', false) }}"></input>
-                        </fieldset>
-                        <br />
-                        <input type="submit" value="Enviar">
-                        <input type="reset" value="Limpar">
-                    </form>
                     {% else %}
                     <form action="{{ app.url_generator.generate('postGravacao') }}" method="post">
+                    {% endif %}
                         <fieldset>
-                            <legend>Cadastre o post:</legend>
+                            <legend>Informe:</legend>
                                 <label for="titulo">Título:</label><br />
-                                <input type="text" id="titulo" type="text" name="desTitulo"><br />
+                                <input type="text" id="titulo" type="text" name="desTitulo" value ="{% if post %}{{ post.des_titulo }}{% endif %}"><br />
                                 <label for="conteudo">Conteúdo:</label><br>
-                                <textarea id="conteudo" name="txtConteudo"></textarea><br />
+                                <textarea id="conteudo" name="txtConteudo">{% if post %}{{ post.txt_conteudo }}{% endif %}</textarea><br />
                                 <label for="autor">Autor:</label><br />
-                                <input type="text" id="autor" type="text" name="nomAutor"> <br />
+                                <input type="text" id="autor" type="text" name="nomAutor" value ="{% if post %}{{ post.nom_autor }}{% endif %}"> <br />
                                 <label for="data">Data:</label><br />
-                                <input type="date" id="data" name="datPost"></input>
+                                <input type="date" id="data" name="datPost" value ="{% if post %}{{ post.dat_publicacao|date('d/m/Y', false) }}{% endif %}">
                         </fieldset>
                         <br />
                         <input type="submit" value="Enviar">
                         <input type="reset" value="Limpar">
                     </form>
-                    {% endif %}
                 </div>
                 <hr>
                 <!-- Pager -->
@@ -52,5 +37,3 @@
         </div>
     </div>
 {% endblock %}
-
-

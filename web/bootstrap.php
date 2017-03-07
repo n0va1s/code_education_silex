@@ -78,6 +78,13 @@ $em = EntityManager::create(
 $app = new Silex\Application();
 $app['debug'] = true;
 
+$app['user_repository'] = $app->share(function ($app) use ($em) {
+    $user = new Api\User\UserEntity();
+    $repo = $em->getRepository('Api\User\UserEntity');
+    $repo->setPasswordEncoder($app['security.encoder_factory']->getEncoder($user));
+    return $repo;
+});
+
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__ .'/views',
 ));
@@ -86,22 +93,12 @@ $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->register(new Silex\Provider\ServiceControllerServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
 
-/*
-$app['user_repository'] = $app->share(function($app) use ($em) {
-    $user = new SON\Entity\User();
-
-    $repo = $em->getRepository('SON\Entity\User');
-    $repo->setPasswordEncoder($app['security.encoder_factory']->getEncoder($user));
-
-    return $repo;
-});
-
 $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
         'admin' => array(
             'anonymous' => true,
             'pattern' => '^/',
-            'form' => array('login_path' => '/login', 'check_path' => '/admin/login_check'),
+            'form' => array('login_path' => '/login', 'check_path' => '/admin/autenticar'),
             // lazily load the user_repository
             'users' => $app->share(function () use ($app) {
                 return $app['user_repository'];
@@ -115,5 +112,4 @@ $app['security.access_rules'] = array(
     array('^/admin', 'ROLE_ADMIN'),
 );
 
-*/
 return $app;

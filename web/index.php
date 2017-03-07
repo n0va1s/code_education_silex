@@ -15,8 +15,22 @@ $app->before(function (Request $req) {
 });
 
 $app->get('/', function () use ($app) {
-    return $app['twig']->render('inicio.twig');
+    return $app['twig']->render('inicio.twig', array(
+        'username' => $app['security']->getToken()->getUser()
+    ));
 })->bind('inicio');
+
+$app->get('/login', function (Request $req) use ($app) {
+    return $app['twig']->render('login.twig', array(
+                'error'         => $app['security.last_error']($req),
+                'last_username' => $app['session']->get('_security.last_username'),));
+})->bind('login');
+
+$app->get('/login/{username}', function ($username) use ($app) {
+    $repo = $app['user_repository'];
+    $repo->createAdminUser($username, 'admin');
+    return new Response("Administrador criado - {$username}", 200);
+})->bind('admin');
 
 $app->after(function (Request $req, Response $res) {
     //$res->headers->set('Content-Type', 'application/json');
