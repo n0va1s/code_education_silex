@@ -89,10 +89,14 @@ class UserRepository extends EntityRepository implements UserProviderInterface
     public function loadUserByUsername($username)
     {
 
-        $user = $this->findOneByUsername($username);
-
+        //$user = $this->findOneByUsername($username);
+        $query = $this->em->createQuery('select u from \Api\User\UserEntity u where u.username = :username')
+                          ->setParameter('username', $username);
+              
+        $user = $query->getOneOrNullResult();
+          
         if (!$user) {
-            throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $username));
+            throw new UsernameNotFoundException(sprintf('Usuário "%s" não encontrado. Verifique se vc digitou corretamente.', $username));
         }
 
         return $this->arrayToObject($user->toArray());
@@ -101,7 +105,7 @@ class UserRepository extends EntityRepository implements UserProviderInterface
     public function refreshUser(UserInterface $user)
     {
         if (!$user instanceof User) {
-            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
+            throw new UnsupportedUserException(sprintf('Esse "%s" não é um usuário válido.', get_class($user)));
         }
 
         return $this->loadUserByUsername($user->getUsername());
