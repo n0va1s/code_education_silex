@@ -79,11 +79,12 @@ $app = new Silex\Application();
 $app['debug'] = true;
 
 //Informacoes para autenticacao
-$app['user_repository'] = $app->share(function ($app) use ($em) {
-    $user = new Api\User\UserRepository($em);
-    //$repo = $em->getRepository('\Api\User\UserEntity');
-    //$user = $repo->setPasswordEncoder($app['security.encoder_factory']->getEncoder($user));
-});
+$app['user_repository'] = function ($app) use ($em) {
+    $user = new Api\User\UserEntity();
+    $repo = $em->getRepository('\Api\User\UserEntity');
+    $user = $repo->setPasswordEncoder($app['security.encoder_factory']->getEncoder($repo));
+    return $user;
+};
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__ .'/views',
@@ -96,9 +97,10 @@ $app->register(new Silex\Provider\SessionServiceProvider());
 $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
         'admin' => array(
+            'anonymous' => true,
             'pattern' => '^/admin',
-            'form' => array('login_path' => '/login', 'check_path' => '/admin/autenticar'),
-            'users' => $app->share(function () use ($app) {return $app['user_repository'];}),
+            'form' => array('login_path' => '/login', 'check_path' => '/admin/login_check'),
+            'users' => $app['user_repository'],
             'logout' => array('logout_path' => '/admin/logout', 'invalidate_session' => true),
         ),
     )

@@ -17,16 +17,15 @@ $app->before(function (Request $req) {
 */
 
 $app->get('/', function () use ($app) {
-    var_dump($token);
     return $app['twig']->render('inicio.twig', array(
-        'username' => $app['security']->getToken()->getUser() //Synfony 2.5
-        //'username' => $app['security.token_storage']->getToken()->getUser() //Synfony 2.6
-        
+        //'username' => $app['security']->getToken()->getUser() //Synfony 2.5
+        'username' => $app['security.token_storage']->getToken()->getUser() //Synfony 2.6
     ));
 })->bind('inicio');
 
 //Nao ha necessidade de uma controladora para login e logout o security intercepta as requisicoes
 $app->get('/login', function (Request $req) use ($app) {
+var_dump($app['session']->get('_security.last_username'));    
     return $app['twig']->render('login.twig', array(
                 'error'         => $app['security.last_error']($req),
                 'last_username' => $app['session']->get('_security.last_username'),));
