@@ -4,18 +4,15 @@
     <div class="container">
         <div class="row">
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <a href="{{ path('admin_logout') }}">Sair</a>
+                <p>Bem-vindo FULANO,</p><br />
+                <a href="{{ path('logout') }}">Sair</a>
+            {% else %}
+                <a href="{{ app.url_generator.generate('login') }}">Login</a>
             {% endif %}
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
                     <a href="#">
-                        <h2 class="post-title">
-                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            Bem-vindo {{ username }},
-                            {% else %}
-                            Bem-vindo Visitante,
-                           {% endif %}
-                        </h2>
+                        <h2 class="post-title">Suas opções...</h2>
                     </a>
                     <h3 class="post-subtitle">Rotas:</h3>
                     <p class="post-meta">

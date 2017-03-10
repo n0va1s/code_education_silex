@@ -260,12 +260,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "4b434dbf8d204198dac708f2e938f7c805864dd6"
+                "reference": "5bd8542e485bb60d137ee4895c4e70c3925f603a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/4b434dbf8d204198dac708f2e938f7c805864dd6",
-                "reference": "4b434dbf8d204198dac708f2e938f7c805864dd6",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/5bd8542e485bb60d137ee4895c4e70c3925f603a",
+                "reference": "5bd8542e485bb60d137ee4895c4e70c3925f603a",
                 "shasum": ""
             },
             "require": {
@@ -325,7 +325,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2017-03-06 07:30:42"
+            "time": "2017-03-09 15:05:39"
         },
         {
             "name": "doctrine/dbal",
@@ -333,12 +333,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "50bf623418be0feb3282bb50d07a4aea977fb33a"
+                "reference": "c2bf5fb8cd7e2235a000ed9765f742cf80a46157"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/50bf623418be0feb3282bb50d07a4aea977fb33a",
-                "reference": "50bf623418be0feb3282bb50d07a4aea977fb33a",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/c2bf5fb8cd7e2235a000ed9765f742cf80a46157",
+                "reference": "c2bf5fb8cd7e2235a000ed9765f742cf80a46157",
                 "shasum": ""
             },
             "require": {
@@ -397,7 +397,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-02-25 22:09:19"
+            "time": "2017-03-09 15:46:21"
         },
         {
             "name": "doctrine/inflector",
@@ -580,12 +580,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "e4704beaf9fad5a521fe7592dec382ae209b3cc1"
+                "reference": "bd1efaf52847f5feb979244eb305af6019ab71e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/e4704beaf9fad5a521fe7592dec382ae209b3cc1",
-                "reference": "e4704beaf9fad5a521fe7592dec382ae209b3cc1",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/bd1efaf52847f5feb979244eb305af6019ab71e4",
+                "reference": "bd1efaf52847f5feb979244eb305af6019ab71e4",
                 "shasum": ""
             },
             "require": {
@@ -651,7 +651,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-02-13 00:46:01"
+            "time": "2017-03-07 17:34:50"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1033,12 +1033,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "63c11b96ebaab5fda1aa33c5eaf011d3e47396f1"
+                "reference": "d4a7323e9ad72858fd0288297e9866fd889bbdd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/63c11b96ebaab5fda1aa33c5eaf011d3e47396f1",
-                "reference": "63c11b96ebaab5fda1aa33c5eaf011d3e47396f1",
+                "url": "https://api.github.com/repos/symfony/console/zipball/d4a7323e9ad72858fd0288297e9866fd889bbdd6",
+                "reference": "d4a7323e9ad72858fd0288297e9866fd889bbdd6",
                 "shasum": ""
             },
             "require": {
@@ -1093,7 +1093,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-01 18:19:35"
+            "time": "2017-03-07 16:28:52"
         },
         {
             "name": "symfony/debug",

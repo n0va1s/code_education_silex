@@ -78,14 +78,6 @@ $em = EntityManager::create(
 $app = new Silex\Application();
 $app['debug'] = true;
 
-//Informacoes para autenticacao
-$app['user_repository'] = function ($app) use ($em) {
-    $user = new Api\User\UserEntity();
-    $repo = $em->getRepository('\Api\User\UserEntity');
-    $user = $repo->setPasswordEncoder($app['security.encoder_factory']->getEncoder($repo));
-    return $user;
-};
-
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__ .'/views',
 ));
@@ -94,13 +86,25 @@ $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->register(new Silex\Provider\ServiceControllerServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
 
+//Configura o encoder para criptografar a plainPassword do usuario
+/*
+$app['user_encoder'] = $app->share(function($app) use ($em) {
+    $user = new Api\User\UserProvider($em);
+//var_dump($app['security.encoder_factory']);    
+    $user->setPasswordEncoder($app['security.encoder_factory']->getEncoder($user));
+    return $user;
+});
+*/
+/*
 $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
         'admin' => array(
             'anonymous' => true,
             'pattern' => '^/admin',
             'form' => array('login_path' => '/login', 'check_path' => '/admin/login_check'),
-            'users' => $app['user_repository'],
+            'users' => $app->share(function() use ($em) {
+                return new Api\User\UserProvider($em);
+            }),
             'logout' => array('logout_path' => '/admin/logout', 'invalidate_session' => true),
         ),
     )
@@ -109,6 +113,35 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
 // access controls
 $app['security.access_rules'] = array(
     array('^/admin', 'ROLE_ADMIN'),
-);
+    array('^.*$', 'ROLE_USER'),
+);*/
+
+$app->register(new Silex\Provider\SecurityServiceProvider(), array(
+    'security.firewalls' => array(
+        'login_path' => array(
+            'pattern' => '^/login$',
+            'anonymous' => true
+        ),
+        'default' => array(
+            'pattern' => '^/.*$',
+            'anonymous' => true,
+            'form' => array(
+                'login_path' => '/login',
+                'check_path' => '/login_check',
+            ),
+            'logout' => array(
+                'logout_path' => '/logout',
+                'invalidate_session' => false
+            ),
+            'users' => $app->share(function($app) use ($em) { 
+               return new Api\User\UserProvider($em);
+            }),
+        )
+    ),
+    'security.access_rules' => array(
+        array('^/login$', 'IS_AUTHENTICATED_ANONYMOUSLY'),
+        array('^/.+$', 'ROLE_ADMIN')
+    )
+));
 
 return $app;
